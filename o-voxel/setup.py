@@ -56,8 +56,25 @@ setup(
                 os.path.join(ROOT, "third_party/eigen"),
             ],
             extra_compile_args={
-                "cxx": ["-O3", "-std=c++17"],
-                "nvcc": ["-O3","-std=c++17"] + cc_flag,
+                "cxx": [
+                    "/std:c++17",
+                    "/EHsc", 
+                    "/permissive-", 
+                    "/Zc:__cplusplus", 
+                    "/Zc:preprocessor",
+                ],
+                "nvcc": [
+                    "-O3",
+                    "--expt-relaxed-constexpr",
+                    "--extended-lambda",
+                    "-std=c++17",
+                    "-Xcompiler=/std:c++17",
+                    "-Xcompiler=/EHsc", 
+                    "-Xcompiler=/permissive-", 
+                    "-Xcompiler=/Zc:__cplusplus",
+                    "-Xcompiler=/Zc:preprocessor",
+                    "-allow-unsupported-compiler",
+                ] + cc_flag,
             }
         )
     ],
