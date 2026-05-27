@@ -335,6 +335,7 @@ void boundry_qef(
         Eigen::Vector3d tMax, tDelta;
         for (int axis = 0; axis < 3; ++axis) {
             if (dir[axis] == 0.0) {
+            if (dir[axis] == 0.0) {
                 tMax[axis] = std::numeric_limits<double>::infinity();
                 tDelta[axis] = std::numeric_limits<double>::infinity();
             } else {
